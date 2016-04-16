@@ -376,7 +376,22 @@ def cis(angle):
     answer =  math.sin(angle) + "i" + math.cos(angle) + "i"
     return answer
 
-              
+# Geometry
+def volumeofsphere(radius):
+        answer = (4/3)(math.pi)(radius ** 3)
+        return answer
+
+def volumeofcone(radius, height):
+        answer = (radius ** 2)(math.pi)(height /3)
+        return answer
+
+def surfareaofsphere(radius):
+        answer = 4 * (math.pi) * (radius ** 2)
+        return answer
+
+def surfareaofcone(radius, height):
+        answer = (math.pi)(radius)(radius + (math.sqrt((height ** 2) + (radius ** 2))))
+        return answer              
                       
     ########################
     #Creates the widgets for the window GUI buttons
