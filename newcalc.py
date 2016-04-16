@@ -307,6 +307,51 @@ class Application(Frame):
         self.display.delete('1.0', 'end')
         self.yinput.delete('1.0', 'end')
         self.yinput.insert(END, disp)
+        import math
+
+def permutations(n,r):
+    answer = (math.factorial(n))/((math.factorial(r))(math.factorial(n - r)))
+    return answer
+    
+def combinations(n,r):
+    answer = (math.factorial(n)/(math.factorial(n - 3))
+    return answer
+
+def geometric(p,x):
+    answer = p * ((1 - p) ** (x - 1))
+    return answer
+
+def hypergeometric(total, smplsize, sucinpop, sucinsam):
+    answer = ((combinations(sucinpop, sucinsam))(combinations((total - sucinpop), (smplsize - sucinsam)))) / (combinations(total, smplsize))
+    return answer
+
+def binomialcdf(n,q,x):
+    answer = ((math.factorial(n)) / ((math.factorial(n - x))(math.factorial(x)))) * (p ** x)(q ** (n - x))
+    return answer
+
+def rot13Chr(ch): 
+    if (64 < ord(ch) < 78) or (97 < ord(ch) < 110): 
+        x = ord(ch) 
+        return chr(x + 13) 
+    else: 
+        y = ord(ch) 
+        return chr(y - 13) 
+ 
+def rot13(phrase): 
+    pos = 0 
+    string = "" 
+    while pos < len(phrase):  
+        if phrase[pos] == " ":
+            string = string + " "
+        elif ord(phrase[pos]) < 64 or ord(phrase[pos]) > 110:
+            string += phrase[pos]
+        else:
+            letter = phrase[pos] 
+            string += rot13Chr(letter) 
+        pos += 1  
+    return string
+              
+                      
     ########################
     #Creates the widgets for the window GUI buttons
     def createWidgets(self):
