@@ -433,11 +433,107 @@ class Application(Frame):
 	answer2 = str(answer2)
 	answer1 += "\n"
 	answer2 += "\n"
-	if w == "+":
+	if d == "+":
 	    self.display.insert(END, answer1)
 	else:
             self.display.insert(END, answer2)
+    def volumeofsphere(self):
+	radius = float(self.xinput.get('1.0', 'end-1c'))
+        answer = 4 * math.pi * (radius ** 3) / 3
+        answer = str(answer)
+	answer+= "\n"
+        self.display.insert(END, answer)
 
+    def volumeofcone(self):
+	radius = float(self.xinput.get('1.0', 'end-1c'))
+	height = float(self.yinput.get('1.0', 'end-1c'))        
+	answer = (radius ** 2) * math.pi * height / 3
+        answer = str(answer)
+	answer+= "\n"
+        self.display.insert(END, answer)
+
+    def surfareaofsphere(self):
+	radius = float(self.xinput.get('1.0', 'end-1c'))        
+	answer = 4 * math.pi * (radius ** 2)
+	answer = str(answer)
+	answer+= "\n"
+        self.display.insert(END, answer)
+
+    def surfareaofcone(self):
+	radius = float(self.xinput.get('1.0', 'end-1c'))
+	height = float(self.xinput.get('1.0', 'end-1c'))        
+	answer = math.pi * radius * radius + math.sqrt((height ** 2) + (radius ** 2))
+        answer = str(answer)
+	answer+= "\n"
+        self.display.insert(END, answer)
+
+    def volumeofcylinder(self):
+	radius = float(self.xinput.get('1.0', 'end-1c'))
+	height = float(self.yinput.get('1.0', 'end-1c'))
+        answer = math.pi * radius**2 *height
+        answer = str(answer)
+	answer+= "\n"
+        self.display.insert(END, answer)
+
+    def surfareaofcylnder(self):
+	radius = float(self.xinput.get('1.0', 'end-1c'))
+	height = float(self.yinput.get('1.0', 'end-1c'))
+	answer = (2 * math.pi * radius) * (height + radius)
+        answer = str(answer)
+	answer+= "\n"
+        self.display.insert(END, answer)
+
+    def volumeofsquarepyramid(self):
+	area = float(self.xinput.get('1.0', 'end-1c')) 
+	height = float(self.yinput.get('1.0', 'end-1c'))      
+	answer = area * height / 3
+	answer = str(answer)
+	answer+= "\n"
+        self.display.insert(END, answer)
+
+    def surfareaofsquarepyramid(self):
+	length = float(self.xinput.get('1.0', 'end-1c'))
+	width = float(self.yinput.get('1.0', 'end-1c'))
+	height = float(self.zinput.get('1.0', 'end-1c'))
+        part1 = length * width
+        part2 = length * math.sqrt(((length / 2)**2) + (height**2))
+        part3 = width * math.sqrt(((length / 2)**2) + (height**2))
+        answer = part1 + part2 + part3
+	answer = str(answer)
+	answer+= "\n"
+        self.display.insert(END, answer)
+
+    def pythagoreantheorem(self):
+        a = float(self.xinput.get('1.0', 'end-1c'))
+	b = float(self.yinput.get('1.0', 'end-1c'))
+	answer = math.sqrt((a**2) + (b**2))
+        answer = str(answer)
+	answer+= "\n"
+        self.display.insert(END, answer)
+
+    def distance(self):
+        x1 = float(self.xinput.get('1.0', 'end-1c'))
+	x2 = float(self.yinput.get('1.0', 'end-1c'))
+	y1 = float(self.zinput.get('1.0', 'end-1c'))
+	y2 = float(self.winput.get('1.0', 'end-1c'))
+	answer = math.sqrt(((x2 - x1)**2) + ((y2-y1) ** 2))
+        answer = str(answer)
+	answer+= "\n"
+        self.display.insert(END, answer)
+    def fibonacci(self):
+	x = int(self.xinput.get('1.0', 'end-1c'))
+	start = 1
+	beg = True
+	for a in range(1, (x + 1)):
+	    if start == 1 and beg:
+		beg = False
+		prev = 0
+	    previous = start
+	    start += prev
+	    prev = previous
+	start = str(start)
+	start += "\n"
+	self.display.insert(END, start)
     ########################
     #Creates the widgets for the window GUI buttons
     def createWidgets(self):
@@ -491,7 +587,7 @@ class Application(Frame):
 	 
          #WINPUT
          self.winput = Text(self, height="1", width="10")
-         wlabel = Label(self, text="                                                         X input")
+         wlabel = Label(self, text="                                                         W input")
          wlabel.grid(row=10, column=0)
          self.winput.grid(row=10, column=1)
 	 
@@ -538,7 +634,7 @@ class Application(Frame):
 	 
 	#TRIG FUNCTIONS
 
-         self.trig = Label(self, width="20", text="Trig Functions")
+         self.trig = Label(self, width="20", text="Trigonometry")
 	 self.trig.grid(row=0, column=3)
 
 	 self.sin = Button(self, width="20", text="sin(x)", command=self.sine)
@@ -578,25 +674,25 @@ class Application(Frame):
          self.acot.grid(row=12, column=3)
 	#HYPERBOLIC FUNCTIONS
 
-	 self.trig = Label(self, width="20", text="Hyperbolic Functions")
+	 self.trig = Label(self, width="10", text="Hyperbolic")
 	 self.trig.grid(row=0, column=4)
 
-   	 self.sinh = Button(self, width="20", text="sinh(x)", command=self.sineh)
+   	 self.sinh = Button(self, width="10", text="sinh(x)", command=self.sineh)
          self.sinh.grid(row=1, column=4)
 	
-	 self.cosh = Button(self, width="20", text="cosh(x)", command=self.cosineh)
+	 self.cosh = Button(self, width="10", text="cosh(x)", command=self.cosineh)
          self.cosh.grid(row=2, column=4)
 
-	 self.tanh = Button(self, width="20", text="tanh(x)", command=self.tangenth)
+	 self.tanh = Button(self, width="10", text="tanh(x)", command=self.tangenth)
          self.tanh.grid(row=3, column=4)
 
-	 self.asinh = Button(self, width="20", text="asinh(x)", command=self.arcsineh)
+	 self.asinh = Button(self, width="10", text="asinh(x)", command=self.arcsineh)
          self.asinh.grid(row=4, column=4)
 
-	 self.acosh = Button(self, width="20", text="acosh(x)", command=self.arccosineh)
+	 self.acosh = Button(self, width="10", text="acosh(x)", command=self.arccosineh)
          self.acosh.grid(row=5, column=4)
 
-	 self.atanh = Button(self, width="20", text="atanh(x)", command=self.arctangenth)
+	 self.atanh = Button(self, width="10", text="atanh(x)", command=self.arctangenth)
          self.atanh.grid(row=6, column=4)
 
 	 #CUSTOM FUNCTIONS
@@ -619,8 +715,39 @@ class Application(Frame):
 
 	 self.decrypt = Button(self, width="40", text="decrypt ROT13(x)", command=self.rot13)
 	 self.decrypt.grid(row=13, column=0)
+	 #CUSTOM FUNCTIONS II
+	 self.cust2 = Label(self, width="40", text="More custom functions")
+	 self.cust2.grid(row=0, column=5)
 
+	 self.quadratic = Button(self, width="40", text="Quadratic Formula", command=self.quadraticformula)
+	 self.quadratic.grid(row=1, column=5)
+
+	 self.sphvol = Button(self, width="40", text="VOL-SPHERE with radius x", command=self.volumeofsphere)
+	 self.sphvol.grid(row=2, column=5)
+
+	 self.conevol = Button(self, width="40", text="VOL-CONE with radius x and height y", command=self.volumeofcone)
+	 self.conevol.grid(row=3, column=5)
+
+	 self.volcyl = Button(self, width="40", text="VOL-CYLINDER with radius x and height y", command=self.volumeofcylinder)
+	 self.volcyl.grid(row=4, column=5)
+	
+	 self.surfsph = Button(self, width="40", text="SA-SPHERE with radius x", command=self.surfareaofsphere)
+	 self.surfsph.grid(row=5, column=5)
+
+	 self.surfcone = Button(self, width="40", text="SA-CONE with radius x and height y", command=self.surfareaofcone)
+	 self.surfcone.grid(row=6, column=5)
+
+	 self.surfpyr = Button(self, width="40", text="SA-PYRAMID with area x and height y", command=self.surfareaofsquarepyramid)
+	 self.surfpyr.grid(row=7, column=5)
+	
+	 self.pythag = Button(self, width="40", text="Pythag. Theorem with leg x and leg y", command=self.pythagoreantheorem)
+	 self.pythag.grid(row=8, column=5)
+
+	 self.dist = Button(self, width="40", text="Distance formula with coords x1(x), x2(y), y1(z), y2(w)", command=self.distance)
+	 self.dist.grid(row=9, column=5)
 	 
+	 self.area = Button(self, width="40", text="The xth number in the Fibonacci Sequence", command=self.fibonacci)
+	 self.area.grid(row=10, column=5)
     #PUT ALL THE BUTTON CODE HERE
     ########################
     def __init__(self, master=None):
@@ -634,3 +761,4 @@ app = Application(master=root)
 app.mainloop()
 root.destroy()
 quit()
+
