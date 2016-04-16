@@ -438,6 +438,47 @@ class Application(Frame):
 	else:
             self.display.insert(END, answer2)
 
+# Geometry
+def volumeofsphere(radius):
+        answer = (4/3)(math.pi)(radius ** 3)
+        return answer
+
+def volumeofcone(radius, height):
+        answer = (radius ** 2)(math.pi)(height /3)
+        return answer
+
+def surfareaofsphere(radius):
+        answer = 4 * (math.pi) * (radius ** 2)
+        return answer
+
+def surfareaofcone(radius, height):
+        answer = (math.pi)(radius)(radius + (math.sqrt((height ** 2) + (radius ** 2))))
+        return answer
+
+def volumeofcylinder(radius, height):
+        answer = (volumeofcone(radius, height)) * 3
+        return answer
+
+def surfareaofcylnder(radius, height):
+        answer = (2 * math.pi * radius)(height + radius)
+        return answer
+
+def volumeofsquarepyramid(area, height):
+        answer = (area * height) / 3
+
+def surfareaofsquarepyramid(length, width, height):
+        part1 = length * width
+        part2 = length * math.sqrt(((length/2)**2) + (height**2))
+        part3 = width * math.sqrt(((length/2)**2) + (height**2))
+        answer = part1 + part2 + part3
+
+def pythagoreantheorem(a, b):
+        answer = math.sqrt((a**2) + (b**2))
+        return answer
+
+def distance(x1,y1,x2,y2):
+        answer = pythagoreantheorem((x2 - x1), (y2 - y1))
+        return answer  
     ########################
     #Creates the widgets for the window GUI buttons
     def createWidgets(self):
