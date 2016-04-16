@@ -307,8 +307,7 @@ class Application(Frame):
         self.display.delete('1.0', 'end')
         self.yinput.delete('1.0', 'end')
         self.yinput.insert(END, disp)
-        import math
-
+    # AP Statistics
 def permutations(n,r):
     answer = (math.factorial(n))/((math.factorial(r))(math.factorial(n - r)))
     return answer
@@ -325,10 +324,11 @@ def hypergeometric(total, smplsize, sucinpop, sucinsam):
     answer = ((combinations(sucinpop, sucinsam))(combinations((total - sucinpop), (smplsize - sucinsam)))) / (combinations(total, smplsize))
     return answer
 
-def binomialcdf(n,q,x):
-    answer = ((math.factorial(n)) / ((math.factorial(n - x))(math.factorial(x)))) * (p ** x)(q ** (n - x))
+def binomialcdf(n,x,p):
+    answer = ((math.factorial(n)) / ((math.factorial(n - x))(math.factorial(x)))) * (p ** x)((1 - p) ** (n - x))
     return answer
 
+# Encryption
 def rot13Chr(ch): 
     if (64 < ord(ch) < 78) or (97 < ord(ch) < 110): 
         x = ord(ch) 
@@ -350,8 +350,30 @@ def rot13(phrase):
             string += rot13Chr(letter) 
         pos += 1  
     return string
-              
-                      
+
+# Trig/ Algebra 2
+def quadraticformula(a,b,c):
+    answer1 = (-b + math.sqrt((b**2) - (4 * a * c))) / (2 * a)
+    answer2 = (-b - math.sqrt((b**2) - (4 * a * c))) / (2 * a)
+    return answer1
+    return answer2
+
+def csc(angle):
+    answer = (1 / math.sin(angle))(math.pi / 180)
+    return answer
+
+def sec(angle):
+    answer = (1 / math.cos(angle))(math.pi / 180)
+    return answer
+
+def cot(angle):
+    answer = (1 / math.tan(angle))(math.pi / 180)
+    return answer
+
+def cis(angle):
+    answer =  math.sin(angle) + "i" + math.cos(angle) + "i"
+    return answer
+
     ########################
     #Creates the widgets for the window GUI buttons
     def createWidgets(self):
