@@ -4,7 +4,7 @@ from Tkinter import *
 class Application(Frame):
     #Keep the functions here, let's use .grid() instead of .grid()
     #DEFINE THE FUNCTIONS HERE
- #   def functionLoad(self):
+ #   def functionLoad(self):c
         #newfile = open(filename, 'rw')
         #read = newfile.read()
     #    filename = self.xinput.get('1.0', 'end-1c')
@@ -320,6 +320,9 @@ class Application(Frame):
         z = str(z)
         z = z + "\n"
         self.display.insert(END, z)
+    def cis(angle):
+    	answer =  math.sin(angle) + "i" + math.cos(angle)
+    	return answer
     def degrees(self):
         x = self.xinput.get('1.0', 'end-1c')
         x = float(x)
