@@ -4,16 +4,6 @@ from Tkinter import *
 class Application(Frame):
     #Keep the functions here, let's use .grid() instead of .grid()
     #DEFINE THE FUNCTIONS HERE
- #   def functionLoad(self):
-        #newfile = open(filename, 'rw')
-        #read = newfile.read()
-    #    filename = self.xinput.get('1.0', 'end-1c')
-       # print filename
-#        func = self.yinput.get('1.0', 'end-1c')#NEEDS PARAMETERS TO BE ENTERED
-   #     e = open(filename, 'rU')
-      #  f = e.read()
-        #g = f.split("def")[0]
-       # print repr(g)
         
     #you can add the built-in functions here.
     def addition(self):
@@ -112,16 +102,6 @@ class Application(Frame):
         x = self.xinput.get('1.0', 'end-1c')
         x = float(x)
         z = float(math.floor(x))
-        print(z)
-        z = str(z)
-        z = z + "\n"
-        self.display.insert(END, z)
-    def greatestcd(self):
-        x = self.xinput.get('1.0', 'end-1c')
-        y = self.yinput.get('1.0', 'end-1c')
-        x = float(x)
-        y = float(y)
-        z = float(math.gcd(x, y))
         print(z)
         z = str(z)
         z = z + "\n"
@@ -610,27 +590,24 @@ class Application(Frame):
 
 	 self.flr = Button(self, width="10", text="floor(x)", command=self.floor)
          self.flr.grid(row=6, column=2)
-
-         self.gcd = Button(self, width="10", text="gcd(x, y)", command=self.greatestcd)
-         self.gcd.grid(row=7, column=2)
- 
+        
          self.exp = Button(self, width="10", text="exp(x)", command=self.exp_e)
-         self.exp.grid(row=8, column=2)
+         self.exp.grid(row=7, column=2)
 
  	 self.log = Button(self, width="10", text="log(x, y)", command=self.logarithm)
-         self.log.grid(row=9, column=2)
+         self.log.grid(row=8, column=2)
 
 	 self.log10 = Button(self, width="10", text="log10(x)", command=self.logten)
-         self.log10.grid(row=10, column=2)
+         self.log10.grid(row=9, column=2)
 
 	 self.pow = Button(self, width="10", text="pow(x, y)", command=self.power)
-         self.pow.grid(row=11, column=2)
+         self.pow.grid(row=10, column=2)
 
 	 self.deg = Button(self, width="10", text="deg(x)", command=self.degrees)
-         self.deg.grid(row=12, column=2)
+         self.deg.grid(row=11, column=2)
 
          self.rad = Button(self, width="10", text="rad(x)", command=self.radians)
-         self.rad.grid(row=13, column=2)
+         self.rad.grid(row=12, column=2)
 	 
 	#TRIG FUNCTIONS
 
@@ -748,6 +725,9 @@ class Application(Frame):
 	 
 	 self.area = Button(self, width="40", text="The xth number in the Fibonacci Sequence", command=self.fibonacci)
 	 self.area.grid(row=10, column=5)
+        
+     
+     
     #PUT ALL THE BUTTON CODE HERE
     ########################
     def __init__(self, master=None):
@@ -761,4 +741,3 @@ app = Application(master=root)
 app.mainloop()
 root.destroy()
 quit()
-
